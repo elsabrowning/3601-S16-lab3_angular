@@ -13,6 +13,17 @@ questions by editing this file.
 - Observe the HTML element's formatting (it's done via bootstrap). As you are working on the questions below, experiment with the project to get a better sense for what each element is. 
 
 ##### List all the files at the top level of your project (i.e. not in public) and briefly state the purpose of each one, as you understand it. You might want to postpone describing some files until you work with the project a bit more. 
+
+>.gitignore -- tells git which files and directories to ignore.
+>.travis.yml -- tells travis which commands or scripts to execute before building.
+>app.js -- communicates between client and server.
+>bower.json -- used to keep track of packages and give general information (like authors, etc).
+>Gruntfile.js -- helps us run tests.
+>karma.conf.js -- tests things.
+>LABTASKS.md -- this.
+>package.json -- contains metadata and list of dependencies.
+>README.md -- instructions to set up this lab.
+
 ##### List the folders in the public folder and describe the purpose for each.
 ##### What are the names of the Angular controllers in this web application? What does each of them do?
 ##### Open the index.html view. What controller(s) is it using? 
