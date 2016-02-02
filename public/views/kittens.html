@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>kittens</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+
+    <!-- Loading Javascript Stuff -->
+    <script type="text/javascript" src="javascript/clientJavascript.js"></script>
+    <script type="text/javascript" src="angularjs/angular.js"></script>
+
+    <script type="text/javascript" src="javascript/app.js"></script>
+    <script type="text/javascript" src="javascript/navbar.controller.js"></script>
+</head>
+
+<body ng-app="mainApp">
+<div ng-include="'views/navbar.html'"></div>
+<hr>
+<h1>KITTENS!</h1>
+<div id="kittenPicture">
+    <img class="img-rounded" src="assets/images/kitten.jpg">
+    <h3>This image has a kitten in it!</h3>
+</div>
+</body>
+</html>
