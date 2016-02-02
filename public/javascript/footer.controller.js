@@ -6,7 +6,7 @@ angular.module('stdComponents').controller('footerCtrl', function(){
     var footer = this;
     console.log("footer controller loaded");
 
-    footer.textField = "STUFF";
+    footer.textField = "";
 
     footer.pages = [
         {text: "Home", link: '/'},
