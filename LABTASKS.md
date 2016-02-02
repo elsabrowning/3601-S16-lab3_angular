@@ -19,26 +19,46 @@ questions by editing this file.
 >app.js -- communicates between client and server.
 >bower.json -- used to keep track of packages and give general information (like authors, etc).
 >Gruntfile.js -- helps us run tests.
->karma.conf.js -- tests things.
+>karma.conf.js -- sets configuration options up.
 >LABTASKS.md -- this.
 >package.json -- contains metadata and list of dependencies.
 >README.md -- instructions to set up this lab.
 
 ##### List the folders in the public folder and describe the purpose for each.
-##### What are the names of the Angular controllers in this web application? What does each of them do?
-##### Open the index.html view. What controller(s) is it using? 
-##### Where is the navigation bar included in the source code for index.html? 
-##### app.js within public/javascript is where your Angular modules are located at. What modules does the project currently have?
-##### Notice, the code controlling the Node.js server is in a file also called app.js. There is no particular reason for this other than a generator we will use later on follows the same convention. Explain the difference between the purpose of the files (think client vs server).
-##### Add a pet to the array, data (in the appropriate controller). See the change on the web page (you need to reload, but not restart). 
-##### How are new items added and deleted through the web page? (i.e. - What functions from the main controller are used in index.html, and what Angular directives allow them to interact with the view?)
-##### Open navbar.html view. What is its purpose? How would you go about adding links to the navigation bar? 
-##### Find two instances of use of bootstrap (see above) in either navbar view or index view or both; explain what is formatted. 
+>assets -- keeps misc. content for webpage
+>css -- holds css file
+>javascript - holds javascript files
+>views-- holds html files
 
+##### What are the names of the Angular controllers in this web application? What does each of them do?
+
+>main -- handles adding/removing/keeping track of things in the pet form.
+>navbar -- handles the navigation bar.
+
+##### Open the index.html view. What controller(s) is it using?
+
+>It uses both!
+
+##### Where is the navigation bar included in the source code for index.html?
+
+>Line 19, referencing it in the navbar.controller.js
+
+##### app.js within public/javascript is where your Angular modules are located at. What modules does the project currently have?
+>stdController and mainApp
+##### Notice, the code controlling the Node.js server is in a file also called app.js. There is no particular reason for this other than a generator we will use later on follows the same convention. Explain the difference between the purpose of the files (think client vs server).
+>app.js in the javascript folder works with client side whereas the other one is more for the server communication.
+##### Add a pet to the array, data (in the appropriate controller). See the change on the web page (you need to reload, but not restart).
+> added penguin
+##### How are new items added and deleted through the web page? (i.e. - What functions from the main controller are used in index.html, and what Angular directives allow them to interact with the view?)
+> addData() and removeData() functions are both used by the index.html file. To use addData(), ng-submit is used. To use removeData(), ng-click is used.
+##### Open navbar.html view. What is its purpose? How would you go about adding links to the navigation bar?
+>navbar.html is basically just used to reference angular. To add links to the navbar, you would just add the things to the navbar.pages within the navbar.controller.js file.
+##### Find two instances of use of bootstrap (see above) in either navbar view or index view or both; explain what is formatted.
+>nav - pills is used in navbar which floats things left and glyphicon glyphicon-trash floatRight is used in index and formats the trashcan icon.
 >Protip: Bootstrap is awesome. Start using it. Seriously. This allows you to do fancy things with styling (CSS) with very little effort. Think back to lab 1. http://getbootstrap.com/components/ <- Regular Bootstrap. https://angular-ui.github.io/bootstrap/ <- Angular Bootstrap. These offer separate functionality and both can be used simultaneously.
 
 ##### Stop the server by pressing Ctrl-C in the terminal, type "grunt test" to run tests. Where are the tests located?
-
+>The tests are located clientJavascript.spec.js
 ## Part #2: modifying the project.
 
 - Set up Travis CI and add the build status icon to your project's README.
