@@ -3,7 +3,7 @@ angular.module('mainApp').controller('GPACtrl', function() {
     var GPACalc = this;
 
     GPACalc.textFieldLetter ="";
-    GPACalc.textFieldCredits = "";
+    GPACalc.textFieldCredit = "";
     GPACalc.textFieldCourse = "";
     GPACalc.letters = [];
     GPACalc.credits = [];
@@ -56,14 +56,18 @@ angular.module('mainApp').controller('GPACtrl', function() {
     };
 
     GPACalc.addCredit = function(){
-        if(GPACalc.textFieldCredits.length >= 1) {
-            GPACalc.addCredit.push({text: GPACalc.textFieldCredits});
-            GPACalc.credits.push({text: GPACalc.textFieldCredits});
-            GPACalc.textFieldCredits = "";
+        if(GPACalc.textFieldCredit.length >= 1) {
+            GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
+            GPACalc.credits.push({text: GPACalc.textFieldCredit});
+            GPACalc.textFieldCredit = "";
         }
     };
 
     GPACalc.removeData = function(index){
         GPACalc.data.splice(index, 1);
+    };
+
+    GPACalc.itemsInList = function(){
+        return GPACalc.letters.length;
     };
 });
