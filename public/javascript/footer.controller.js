@@ -6,10 +6,5 @@ angular.module('stdComponents').controller('footerCtrl', function(){
     var footer = this;
     console.log("footer controller loaded");
 
-    footer.textField = "";
-
-    footer.pages = [
-        {text: "Home", link: '/'},
-        {text: "About", link: '/about'},
-    ];
+    footer.text = "This footer was made by Elsa and Humza";
 });
