@@ -12,11 +12,14 @@ angular.module('mainApp').controller('GPAController', function() {
 
     GPACalc.data = function(){
         var data = [];
+        GPACalc.addCourse();
+        GPACalc.addCredit();
+        GPACalc.addLetter();
         for(i=0; i<GPACalc.courses.length; i++){
             data.push([GPACalc.courses[i], GPACalc.credits[i], GPACalc.letters[i]])
         }
+        console.log(data); //See console--it's adding them to an array, not sure yet how to display
         return data;
-        console.log("Made it through data function");
     };
 
     GPACalc.letterConverter = function(letter){
