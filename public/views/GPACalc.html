@@ -17,7 +17,7 @@
     <script type="text/javascript" src="javascript/GPACalc.controller.js"></script>
 </head>
 
-<body ng-app="mainApp" ng-controller="GPACtrl as GPACalc">
+<body ng-app="mainApp" ng-controller="GPAController as GPACalc">
 
 <div ng-include="'views/navbar.html'"></div>
 
@@ -27,7 +27,7 @@
         <ul class="list-group">
             <li class="list-group-item">
 
-                <form ng-submit="GPACalc.addCourse(), GPACalc.addCredit(), GPACalc.addLetter()">
+                <form ng-submit="GPACalc.addAll()">
                     <input ng-model="GPACalc.textFieldCourse" type="text" size="50" placeholder="enter course">
                     <input ng-model="GPACalc.textFieldCredit" type="text" size="50" placeholder="enter credit">
                     <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
@@ -36,7 +36,7 @@
                 </form>
 
             </li>
-            <li class="list-group-item" ng-repeat="test in GPACalc.letters">{{test.text}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="GPACalc.removeData($index)"></span></li>
+            <li class="list-group-item" ng-repeat="test in GPACalc.data">{{test}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="GPACalc.removeData($index)"></span></li>
         </ul>
     </div>
     <div ng-include="'views/footer.html'"></div>

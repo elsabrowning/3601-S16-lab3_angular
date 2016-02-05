@@ -1,13 +1,16 @@
 //GPA Controller
-angular.module('mainApp').controller('GPACtrl', function() {
+angular.module('mainApp').controller('GPAController', function() {
     var GPACalc = this;
+    console.log("GPA Controller loaded");
 
     GPACalc.textFieldLetter ="";
     GPACalc.textFieldCredit = "";
     GPACalc.textFieldCourse = "";
-    GPACalc.courses = [{text: "kittens1"}];
-    GPACalc.letters = [{text: "kittens2"}];
-    GPACalc.credits = [{text: "kittens3"}];
+    GPACalc.courses = [];
+    GPACalc.letters = [];
+    GPACalc.credits = [];
+
+    GPACalc.data = [GPACalc.courses, GPACalc.letters,GPACalc.credits];
 
     GPACalc.letterConverter = function(letter){
         if (letter == "A"){
@@ -39,28 +42,35 @@ angular.module('mainApp').controller('GPACtrl', function() {
         return chunkOfNumbers/creditSum;
     };
 
-    GPACalc.addCourse = function(){
-        if(GPACalc.textFieldCourse.length >= 1) {
-            //GPACalc.addCourse.push({text: GPACalc.textFieldCourse});
-            GPACalc.courses.push.({text: GPACalc.textFieldCourse});
-            GPACalc.textFieldCourse = "";
-        }
-    };
-
 
     GPACalc.addLetter = function(){
         if(GPACalc.textFieldLetter.length >= 1) {
-            //GPACalc.addLetter.push({text: GPACalc.textFieldLetter});
-            GPACalc.letters.push({text: GPACalc.textFieldLetter});
+           // GPACalc.addCourse.push({text: GPACalc.textFieldLetter});
+            GPACalc.letters.push(GPACalc.textFieldLetter);
             GPACalc.textFieldLetter = "";
 
         }
     };
 
+    GPACalc.addCourse = function(){
+        if(GPACalc.textFieldCourse.length >= 1) {
+            //GPACalc.addLetter.push({text: GPACalc.textFieldLetter});
+            GPACalc.courses.push(GPACalc.textFieldCourse);
+            GPACalc.textFieldCourse = "";
+
+        }
+    };
+
+    GPACalc.addAll = function(){
+        GPACalc.addCredit();
+        GPACalc.addLetter();
+        GPACalc.addCourse();
+    };
+
     GPACalc.addCredit = function(){
         if(GPACalc.textFieldCredit.length >= 1) {
-            //GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
-            GPACalc.credits.push({text: GPACalc.textFieldCredit});
+           // GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
+            GPACalc.credits.push(parseInt(GPACalc.textFieldCredit));
             GPACalc.textFieldCredit = "";
         }
     };
