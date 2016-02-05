@@ -27,7 +27,7 @@
         <ul class="list-group">
             <li class="list-group-item">
 
-                <form ng-submit="GPACalc.data()">
+                <form ng-submit="GPACalc.addData()">
                     <input ng-model="GPACalc.textFieldCourse" type="text" size="50" placeholder="enter course">
                     <input ng-model="GPACalc.textFieldCredit" type="text" size="50" placeholder="enter credit">
                     <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
@@ -36,6 +36,7 @@
                 </form>
 
             </li>
+
             <li class="list-group-item" ng-repeat="test in GPACalc.data">{{test}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="GPACalc.removeData($index)"></span></li>
         </ul>
     </div>

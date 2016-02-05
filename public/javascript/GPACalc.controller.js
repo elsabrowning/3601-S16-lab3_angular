@@ -9,16 +9,24 @@ angular.module('mainApp').controller('GPAController', function() {
     GPACalc.courses = [];
     GPACalc.letters = [];
     GPACalc.credits = [];
+    GPACalc.data = [];
+    //GPACalc.dataList = [{course: GPACalc.courses,
+                      //  letter: GPACalc.letters,
+                       //  credit: GPACalc.credits}];
 
-    GPACalc.data = function(){
-        var data = [];
+
+
+
+    GPACalc.addData = function(){
+        //data = [];
         GPACalc.addAll();
-        for(i=0; i<GPACalc.courses.length; i++){
-            data.push([GPACalc.courses[i], GPACalc.credits[i], GPACalc.letters[i]])
-        }
-        console.log(data); //See console--it's adding them to an array, not sure yet how to display
-        return data;
+        //for(i=0; i<GPACalc.credits.length; i++){
+        GPACalc.data.push([GPACalc.courses[GPACalc.courses.length - 1],GPACalc.credits[GPACalc.credits.length - 1], GPACalc.letters[GPACalc.letters.length - 1]]);
+       // }
+        console.log(GPACalc.data); //See console--it's adding them to an array, not sure yet how to display
+        return GPACalc.data[GPACalc.credits.length - 1];
     };
+
 
     GPACalc.letterConverter = function(letter){
         if (letter == "A"){
@@ -53,7 +61,6 @@ angular.module('mainApp').controller('GPAController', function() {
 
     GPACalc.addLetter = function(){
         if(GPACalc.textFieldLetter.length >= 1) {
-           // GPACalc.addCourse.push({text: GPACalc.textFieldLetter});
             GPACalc.letters.push(GPACalc.textFieldLetter);
             GPACalc.textFieldLetter = "";
 
@@ -62,10 +69,16 @@ angular.module('mainApp').controller('GPAController', function() {
 
     GPACalc.addCourse = function(){
         if(GPACalc.textFieldCourse.length >= 1) {
-            //GPACalc.addLetter.push({text: GPACalc.textFieldLetter});
             GPACalc.courses.push(GPACalc.textFieldCourse);
             GPACalc.textFieldCourse = "";
 
+        }
+    };
+
+    GPACalc.addCredit = function(){
+        if(GPACalc.textFieldCredit.length >= 1) {
+            GPACalc.credits.push(parseInt(GPACalc.textFieldCredit));
+            GPACalc.textFieldCredit = "";
         }
     };
 
@@ -73,14 +86,6 @@ angular.module('mainApp').controller('GPAController', function() {
         GPACalc.addCredit();
         GPACalc.addLetter();
         GPACalc.addCourse();
-    };
-
-    GPACalc.addCredit = function(){
-        if(GPACalc.textFieldCredit.length >= 1) {
-           // GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
-            GPACalc.credits.push(parseInt(GPACalc.textFieldCredit));
-            GPACalc.textFieldCredit = "";
-        }
     };
 
     GPACalc.removeData = function(index){
