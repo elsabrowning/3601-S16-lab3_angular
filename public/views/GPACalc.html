@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>kittens</title>
+    <title>GPA Calculator</title>
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
@@ -18,25 +18,27 @@
 </head>
 
 <body ng-app="mainApp" ng-controller="GPACtrl as GPACalc">
+
 <div ng-include="'views/navbar.html'"></div>
-<hr>
-<h1 class="text-center">GPA Calculator Super Cool</h1>
-<div class="container">
-    <ul class="list-group">
-        <li class="list-group-item">
 
-            <form ng-submit="GPACalc.addCourse(), GPACalc.addCredit(), GPACalc.addLetter()">
-                <input ng-model="GPACalc.textFieldCourse" type="text" size="50" placeholder="enter course">
-                <input ng-model="GPACalc.textFieldCredit" type="text" size="50" placeholder="enter credit">
-                <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
-                <input type="submit" value="submit" class="btn btn-primary">
-                <span class="floatRight">Items in this list: {{GPACalc.itemsInList()}}</span>
-            </form>
+    <hr>
+    <h1 class="text-center">GPA Calculator Super Cool</h1>
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">
 
-        </li>
-        <li class="list-group-item" ng-repeat="test in GPACalc.letters">{{test.text}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="GPACalc.removeData($index)"></span></li>
-    </ul>
-</div>
-<div ng-include="'views/footer.html'"></div>
+                <form ng-submit="GPACalc.addCourse(), GPACalc.addCredit(), GPACalc.addLetter()">
+                    <input ng-model="GPACalc.textFieldCourse" type="text" size="50" placeholder="enter course">
+                    <input ng-model="GPACalc.textFieldCredit" type="text" size="50" placeholder="enter credit">
+                    <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
+                    <input type="submit" value="submit" class="btn btn-primary">
+                    <span class="floatRight">Items in this list: {{GPACalc.itemsInList()}}</span>
+                </form>
+
+            </li>
+            <li class="list-group-item" ng-repeat="test in GPACalc.letters">{{test.text}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="GPACalc.removeData($index)"></span></li>
+        </ul>
+    </div>
+    <div ng-include="'views/footer.html'"></div>
 </body>
 </html>

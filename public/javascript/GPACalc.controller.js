@@ -5,8 +5,9 @@ angular.module('mainApp').controller('GPACtrl', function() {
     GPACalc.textFieldLetter ="";
     GPACalc.textFieldCredit = "";
     GPACalc.textFieldCourse = "";
-    GPACalc.letters = [];
-    GPACalc.credits = [];
+    GPACalc.courses = [{text: "kittens1"}];
+    GPACalc.letters = [{text: "kittens2"}];
+    GPACalc.credits = [{text: "kittens3"}];
 
     GPACalc.letterConverter = function(letter){
         if (letter == "A"){
@@ -25,30 +26,31 @@ angular.module('mainApp').controller('GPACtrl', function() {
             return 0.0
         }
         else{return "Error"}
-    }
+    };
 
     GPACalc.calculator = function(letterArray, creditArray){
         chunkOfNumbers = 0;
         creditSum = 0;
         for(i=0;i<letterArray.length;i++){
-            x = letterConverter(letterArray[i])*parseInt(creditArray[i])
-            chunkOfNumbers+= x
+            x = letterConverter(letterArray[i])*parseInt(creditArray[i]);
+            chunkOfNumbers+= x;
             creditSum += parseInt(creditArray[i]);
         }
         return chunkOfNumbers/creditSum;
-    }
+    };
 
     GPACalc.addCourse = function(){
         if(GPACalc.textFieldCourse.length >= 1) {
-            GPACalc.addCourse.push({text: GPACalc.textFieldCourse});
+            //GPACalc.addCourse.push({text: GPACalc.textFieldCourse});
+            GPACalc.courses.push.({text: GPACalc.textFieldCourse});
             GPACalc.textFieldCourse = "";
         }
     };
 
 
     GPACalc.addLetter = function(){
-        if(GPACalc.textField.length >= 1) {
-            GPACalc.addLetter.push({text: GPACalc.textFieldLetter});
+        if(GPACalc.textFieldLetter.length >= 1) {
+            //GPACalc.addLetter.push({text: GPACalc.textFieldLetter});
             GPACalc.letters.push({text: GPACalc.textFieldLetter});
             GPACalc.textFieldLetter = "";
 
@@ -57,7 +59,7 @@ angular.module('mainApp').controller('GPACtrl', function() {
 
     GPACalc.addCredit = function(){
         if(GPACalc.textFieldCredit.length >= 1) {
-            GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
+            //GPACalc.addCredit.push({text: GPACalc.textFieldCredit});
             GPACalc.credits.push({text: GPACalc.textFieldCredit});
             GPACalc.textFieldCredit = "";
         }
