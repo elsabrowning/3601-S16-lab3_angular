@@ -10,7 +10,14 @@ angular.module('mainApp').controller('GPAController', function() {
     GPACalc.letters = [];
     GPACalc.credits = [];
 
-    GPACalc.data = [GPACalc.courses, GPACalc.letters,GPACalc.credits];
+    GPACalc.data = function(){
+        var data = [];
+        for(i=0; i<GPACalc.courses.length; i++){
+            data.push([GPACalc.courses[i], GPACalc.credits[i], GPACalc.letters[i]])
+        }
+        return data;
+        console.log("Made it through data function");
+    };
 
     GPACalc.letterConverter = function(letter){
         if (letter == "A"){
@@ -80,6 +87,6 @@ angular.module('mainApp').controller('GPAController', function() {
     };
 
     GPACalc.itemsInList = function(){
-        return GPACalc.letters.length;
+        return GPACalc.data.length;
     };
 });
