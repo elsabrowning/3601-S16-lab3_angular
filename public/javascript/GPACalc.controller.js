@@ -12,9 +12,7 @@ angular.module('mainApp').controller('GPAController', function() {
 
     GPACalc.data = function(){
         var data = [];
-        GPACalc.addCourse();
-        GPACalc.addCredit();
-        GPACalc.addLetter();
+        GPACalc.addAll();
         for(i=0; i<GPACalc.courses.length; i++){
             data.push([GPACalc.courses[i], GPACalc.credits[i], GPACalc.letters[i]])
         }
@@ -45,7 +43,7 @@ angular.module('mainApp').controller('GPAController', function() {
         chunkOfNumbers = 0;
         creditSum = 0;
         for(i=0;i<letterArray.length;i++){
-            x = letterConverter(letterArray[i])*parseInt(creditArray[i]);
+            x = GPACalc.letterConverter(letterArray[i])*parseInt(creditArray[i]);
             chunkOfNumbers+= x;
             creditSum += parseInt(creditArray[i]);
         }
