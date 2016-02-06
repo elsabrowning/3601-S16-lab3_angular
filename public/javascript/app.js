@@ -6,7 +6,7 @@
 
 angular.module('stdControllers', []);
 angular.module('stdComponents', []);
-angular.module("mainApp", ['stdControllers', 'stdComponents']);
+angular.module('mainApp', ['stdControllers', 'stdComponents']);
 
 
 

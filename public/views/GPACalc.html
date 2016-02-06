@@ -17,7 +17,7 @@
     <script type="text/javascript" src="javascript/GPACalc.controller.js"></script>
 </head>
 
-<body ng-app="mainApp" ng-controller="GPAController as GPACalc">
+<body ng-app='mainApp' ng-controller="GPAController as GPACalc">
 
 <div ng-include="'views/navbar.html'"></div>
 
@@ -33,6 +33,7 @@
                     <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
                     <input type="submit" value="submit" class="btn btn-primary">
                     <span class="float-left">Items in this list: {{GPACalc.itemsInList()}}</span>
+                    <span class="float-left">Cumulative GPA: {{GPACalc.calculator(GPACalc.letters, GPACalc.credits)}}</span>
                 </form>
 
             </li>

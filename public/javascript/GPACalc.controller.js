@@ -1,5 +1,5 @@
 //GPA Controller
-angular.module('mainApp').controller('GPAController', function() {
+angular.module('mainApp').controller('GPAController',function(){
     var GPACalc = this;
     console.log("GPA Controller loaded");
 
@@ -55,7 +55,11 @@ angular.module('mainApp').controller('GPAController', function() {
             chunkOfNumbers+= x;
             creditSum += parseInt(creditArray[i]);
         }
-        return chunkOfNumbers/creditSum;
+        var GPA = chunkOfNumbers/creditSum;
+        if(isNaN(GPA) == true){
+            return "Please enter info.";
+        }
+        return GPA;
     };
 
 
@@ -90,6 +94,9 @@ angular.module('mainApp').controller('GPAController', function() {
 
     GPACalc.removeData = function(index){
         GPACalc.data.splice(index, 1);
+        GPACalc.letters.splice(index, 1);
+        GPACalc.credits.splice(index, 1);
+        GPACalc.courses.splice(index, 1);
     };
 
     GPACalc.itemsInList = function(){
