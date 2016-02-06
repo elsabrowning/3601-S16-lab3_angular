@@ -32,6 +32,12 @@ describe('Testing controller: GPAController', function(){
             expect(scope.GPACalc.letterConverter('D')).toEqual(1.0);
             expect(scope.GPACalc.letterConverter('F')).toEqual(0.0);
         });
+
+        it('testing initial arrays', function () {
+            expect(scope.GPACalc.letters.length).toEqual(0);
+            expect(scope.GPACalc.credits.length).toEqual(0);
+            expect(scope.GPACalc.courses.length).toEqual(0);
+        });
     });
 
 });

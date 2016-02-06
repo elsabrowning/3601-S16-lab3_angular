@@ -33,7 +33,7 @@
                     <input ng-model="GPACalc.textFieldLetter" type="text" size="50" placeholder="enter letter grade">
                     <input type="submit" value="submit" class="btn btn-primary">
                     <span class="float-left">Items in this list: {{GPACalc.itemsInList()}}</span>
-                    <span class="float-left">Cumulative GPA: {{GPACalc.calculator(GPACalc.letters, GPACalc.credits)}}</span>
+                    <span id = "colors" class="float-left">Cumulative GPA: {{GPACalc.calculator(GPACalc.letters, GPACalc.credits)}}</span>
                 </form>
 
             </li>

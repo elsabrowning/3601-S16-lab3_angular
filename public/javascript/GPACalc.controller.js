@@ -20,6 +20,7 @@ angular.module('mainApp').controller('GPAController',function(){
     GPACalc.addData = function(){
         //data = [];
         GPACalc.addAll();
+        GPACalc.changeColor();
         //for(i=0; i<GPACalc.credits.length; i++){
         GPACalc.data.push([GPACalc.courses[GPACalc.courses.length - 1],GPACalc.credits[GPACalc.credits.length - 1], GPACalc.letters[GPACalc.letters.length - 1]]);
        // }
@@ -52,6 +53,9 @@ angular.module('mainApp').controller('GPAController',function(){
         creditSum = 0;
         for(i=0;i<letterArray.length;i++){
             x = GPACalc.letterConverter(letterArray[i])*parseInt(creditArray[i]);
+            if(x  < 0 || isNaN(x) == true){
+                return "Invalid Information Entered, Please Delete Invalid Entry"
+            }
             chunkOfNumbers+= x;
             creditSum += parseInt(creditArray[i]);
         }
@@ -59,9 +63,21 @@ angular.module('mainApp').controller('GPAController',function(){
         if(isNaN(GPA) == true){
             return "Please enter info.";
         }
-        return GPA;
+        return GPA.toFixed(2);
     };
 
+    GPACalc.changeColor= function() {
+        if (GPACalc.calculator(GPACalc.letters, GPACalc.credits) >= 3.0) {
+            document.getElementById("colors").style.color = "green"
+        }
+        else if (GPACalc.calculator(GPACalc.letters, GPACalc.credits) < 3.0 && GPACalc.calculator(GPACalc.letters, GPACalc.credits)>= 2.0) {
+            document.getElementById("colors").style.color = "orange"
+        }
+        else{
+            document.getElementById("colors").style.color = "red"
+
+        }
+    };
 
     GPACalc.addLetter = function(){
         if(GPACalc.textFieldLetter.length >= 1) {
@@ -97,6 +113,7 @@ angular.module('mainApp').controller('GPAController',function(){
         GPACalc.letters.splice(index, 1);
         GPACalc.credits.splice(index, 1);
         GPACalc.courses.splice(index, 1);
+        GPACalc.changeColor();
     };
 
     GPACalc.itemsInList = function(){
