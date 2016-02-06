@@ -17,12 +17,17 @@ describe('Testing controller: GPAController', function(){
 
     describe("testing data functionality: ", function() {
         it('testing calculator', function () {
-            expect(scope.GPACalc.calculator(["A", "A"], [1, 1])).toEqual(4);
-            expect(scope.GPACalc.calculator(["A", "A", "A"], [1, 1, 1])).toEqual(4);
-            expect(scope.GPACalc.calculator(["B", "B", "B"], [1, 1, 1])).toEqual(3);
-            expect(scope.GPACalc.calculator(["C", "C", "C"], [1, 1, 1])).toEqual(2);
-            expect(scope.GPACalc.calculator(["D", "D", "D"], [1, 1, 1])).toEqual(1);
-            expect(scope.GPACalc.calculator(["F", "F", "F"], [1, 1, 1])).toEqual(0);
+            expect(scope.GPACalc.calculator(["A", "A"], [1, 1])).toBe("4.00");
+            expect(scope.GPACalc.calculator(["A", "A", "A"], [1, 1, 1])).toBe("4.00");
+            expect(scope.GPACalc.calculator(["B", "B", "B"], [1, 1, 1])).toBe("3.00");
+            expect(scope.GPACalc.calculator(["C", "C", "C"], [1, 1, 1])).toBe("2.00");
+            expect(scope.GPACalc.calculator(["D", "D", "D"], [1, 1, 1])).toBe("1.00");
+            expect(scope.GPACalc.calculator(["F", "F", "F"], [1, 1, 1])).toBe("0.00");
+            //testing a few random ones
+            expect(scope.GPACalc.calculator(["A", "B", "C"], [2, 1, 5])).toBe("2.63");
+            expect(scope.GPACalc.calculator(["A", "B", "C", "B"], [2, 1, 5, 2])).toBe("2.70");
+            expect(scope.GPACalc.calculator(["C", "B", "F"], [5, 2, 3])).toBe("1.60");
+            expect(scope.GPACalc.calculator(["C", "B"], [5, 2])).toBe("2.29");
         });
 
         it('testing letter converter', function () {
@@ -38,6 +43,12 @@ describe('Testing controller: GPAController', function(){
             expect(scope.GPACalc.credits.length).toEqual(0);
             expect(scope.GPACalc.courses.length).toEqual(0);
         });
+
+        it('testing items in List', function () {
+            scope.GPACalc.data.push(["Csci4454", 4, "A"], ["math", 2, "B"]);
+            expect(scope.GPACalc.itemsInList()).toEqual(2);
+        });
+
     });
 
 });
